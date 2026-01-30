@@ -1,9 +1,9 @@
-# Jocall3 Python API library
+# Garbage Python API library
 
 <!-- prettier-ignore -->
-[![PyPI version](https://img.shields.io/pypi/v/ai_banking.svg?label=pypi%20(stable))](https://pypi.org/project/jocall3-python/)
+[![PyPI version](https://img.shields.io/pypi/v/jocall3-python.svg?label=pypi%20(stable))](https://pypi.org/project/jocall3-python/)
 
-The Jocall3 Python library provides convenient access to the Jocall3 REST API from any Python 3.9+
+The Garbage Python library provides convenient access to the Garbage REST API from any Python 3.9+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -17,7 +17,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```sh
 # install from PyPI
-pip install ai_banking
+pip install jocall3-python
 ```
 
 ## Usage
@@ -26,46 +26,42 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from jocall3 import Jocall3
+from garbage import Garbage
 
-client = Jocall3(
-    api_key=os.environ.get("JOCALL3_API_KEY"),  # This is the default and can be omitted
+client = Garbage(
+    api_key=os.environ.get("GARBAGE_API_KEY"),  # This is the default and can be omitted
 )
 
-response = client.users.register(
-    email="REPLACE_ME",
-    name="REPLACE_ME",
-    password="REPLACE_ME",
+response = client.users.password_reset.initiate(
+    identifier="REPLACE_ME",
 )
-print(response.id)
+print(response.message)
 ```
 
 While you can provide an `api_key` keyword argument,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
-to add `JOCALL3_API_KEY="My API Key"` to your `.env` file
+to add `GARBAGE_API_KEY="My API Key"` to your `.env` file
 so that your API Key is not stored in source control.
 
 ## Async usage
 
-Simply import `AsyncJocall3` instead of `Jocall3` and use `await` with each API call:
+Simply import `AsyncGarbage` instead of `Garbage` and use `await` with each API call:
 
 ```python
 import os
 import asyncio
-from jocall3 import AsyncJocall3
+from garbage import AsyncGarbage
 
-client = AsyncJocall3(
-    api_key=os.environ.get("JOCALL3_API_KEY"),  # This is the default and can be omitted
+client = AsyncGarbage(
+    api_key=os.environ.get("GARBAGE_API_KEY"),  # This is the default and can be omitted
 )
 
 
 async def main() -> None:
-    response = await client.users.register(
-        email="REPLACE_ME",
-        name="REPLACE_ME",
-        password="REPLACE_ME",
+    response = await client.users.password_reset.initiate(
+        identifier="REPLACE_ME",
     )
-    print(response.id)
+    print(response.message)
 
 
 asyncio.run(main())
@@ -81,7 +77,7 @@ You can enable this by installing `aiohttp`:
 
 ```sh
 # install from PyPI
-pip install ai_banking[aiohttp]
+pip install jocall3-python[aiohttp]
 ```
 
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
@@ -89,21 +85,19 @@ Then you can enable it by instantiating the client with `http_client=DefaultAioH
 ```python
 import os
 import asyncio
-from jocall3 import DefaultAioHttpClient
-from jocall3 import AsyncJocall3
+from garbage import DefaultAioHttpClient
+from garbage import AsyncGarbage
 
 
 async def main() -> None:
-    async with AsyncJocall3(
-        api_key=os.environ.get("JOCALL3_API_KEY"),  # This is the default and can be omitted
+    async with AsyncGarbage(
+        api_key=os.environ.get("GARBAGE_API_KEY"),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
-        response = await client.users.register(
-            email="REPLACE_ME",
-            name="REPLACE_ME",
-            password="REPLACE_ME",
+        response = await client.users.password_reset.initiate(
+            identifier="REPLACE_ME",
         )
-        print(response.id)
+        print(response.message)
 
 
 asyncio.run(main())
@@ -123,46 +117,48 @@ Typed requests and responses provide autocomplete and documentation within your 
 Nested parameters are dictionaries, typed using `TypedDict`, for example:
 
 ```python
-from jocall3 import Jocall3
+from garbage import Garbage
 
-client = Jocall3()
+client = Garbage()
 
-response = client.users.register(
-    email="alice.w@example.com",
-    name="Alice Wonderland",
-    password="SecureP@ssw0rd2024!",
-    address={},
+response = client.corporate.cards.request_physical_card(
+    holder_name="string",
+    shipping_address={
+        "city": "string",
+        "country": "string",
+        "street": "string",
+        "state": "string",
+        "zip": "string",
+    },
 )
-print(response.address)
+print(response.shipping_address)
 ```
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `jocall3.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `garbage.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `jocall3.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `garbage.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `jocall3.APIError`.
+All errors inherit from `garbage.APIError`.
 
 ```python
-import jocall3
-from jocall3 import Jocall3
+import garbage
+from garbage import Garbage
 
-client = Jocall3()
+client = Garbage()
 
 try:
-    client.users.register(
-        email="REPLACE_ME",
-        name="REPLACE_ME",
-        password="REPLACE_ME",
+    client.users.password_reset.initiate(
+        identifier="REPLACE_ME",
     )
-except jocall3.APIConnectionError as e:
+except garbage.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
-except jocall3.RateLimitError as e:
+except garbage.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except jocall3.APIStatusError as e:
+except garbage.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -190,19 +186,17 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from jocall3 import Jocall3
+from garbage import Garbage
 
 # Configure the default for all requests:
-client = Jocall3(
+client = Garbage(
     # default is 2
     max_retries=0,
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).users.register(
-    email="REPLACE_ME",
-    name="REPLACE_ME",
-    password="REPLACE_ME",
+client.with_options(max_retries=5).users.password_reset.initiate(
+    identifier="REPLACE_ME",
 )
 ```
 
@@ -212,24 +206,22 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
-from jocall3 import Jocall3
+from garbage import Garbage
 
 # Configure the default for all requests:
-client = Jocall3(
+client = Garbage(
     # 20 seconds (default is 1 minute)
     timeout=20.0,
 )
 
 # More granular control:
-client = Jocall3(
+client = Garbage(
     timeout=httpx.Timeout(60.0, read=5.0, write=10.0, connect=2.0),
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).users.register(
-    email="REPLACE_ME",
-    name="REPLACE_ME",
-    password="REPLACE_ME",
+client.with_options(timeout=5.0).users.password_reset.initiate(
+    identifier="REPLACE_ME",
 )
 ```
 
@@ -243,10 +235,10 @@ Note that requests that time out are [retried twice by default](#retries).
 
 We use the standard library [`logging`](https://docs.python.org/3/library/logging.html) module.
 
-You can enable logging by setting the environment variable `JOCALL3_LOG` to `info`.
+You can enable logging by setting the environment variable `GARBAGE_LOG` to `info`.
 
 ```shell
-$ export JOCALL3_LOG=info
+$ export GARBAGE_LOG=info
 ```
 
 Or to `debug` for more verbose logging.
@@ -268,23 +260,21 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from jocall3 import Jocall3
+from garbage import Garbage
 
-client = Jocall3()
-response = client.users.with_raw_response.register(
-    email="REPLACE_ME",
-    name="REPLACE_ME",
-    password="REPLACE_ME",
+client = Garbage()
+response = client.users.password_reset.with_raw_response.initiate(
+    identifier="REPLACE_ME",
 )
 print(response.headers.get('X-My-Header'))
 
-user = response.parse()  # get the object that `users.register()` would have returned
-print(user.id)
+password_reset = response.parse()  # get the object that `users.password_reset.initiate()` would have returned
+print(password_reset.message)
 ```
 
-These methods return an [`APIResponse`](https://github.com/diplomat-bit/jocall3-python/tree/main/src/jocall3/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/diplomat-bit/jocall3-python/tree/main/src/garbage/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/diplomat-bit/jocall3-python/tree/main/src/jocall3/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/diplomat-bit/jocall3-python/tree/main/src/garbage/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -293,10 +283,8 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.users.with_streaming_response.register(
-    email="REPLACE_ME",
-    name="REPLACE_ME",
-    password="REPLACE_ME",
+with client.users.password_reset.with_streaming_response.initiate(
+    identifier="REPLACE_ME",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
@@ -350,10 +338,10 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 
 ```python
 import httpx
-from jocall3 import Jocall3, DefaultHttpxClient
+from garbage import Garbage, DefaultHttpxClient
 
-client = Jocall3(
-    # Or use the `JOCALL3_BASE_URL` env var
+client = Garbage(
+    # Or use the `GARBAGE_BASE_URL` env var
     base_url="http://my.test.server.example.com:8083",
     http_client=DefaultHttpxClient(
         proxy="http://my.test.proxy.example.com",
@@ -373,9 +361,9 @@ client.with_options(http_client=DefaultHttpxClient(...))
 By default the library closes underlying HTTP connections whenever the client is [garbage collected](https://docs.python.org/3/reference/datamodel.html#object.__del__). You can manually close the client using the `.close()` method if desired, or with a context manager that closes when exiting.
 
 ```py
-from jocall3 import Jocall3
+from garbage import Garbage
 
-with Jocall3() as client:
+with Garbage() as client:
   # make requests here
   ...
 
@@ -401,8 +389,8 @@ If you've upgraded to the latest version but aren't seeing any new features you 
 You can determine the version that is being used at runtime with:
 
 ```py
-import jocall3
-print(jocall3.__version__)
+import garbage
+print(garbage.__version__)
 ```
 
 ## Requirements
