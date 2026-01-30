@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
-from jocall3 import Jocall3, AsyncJocall3
+from garbage import Garbage, AsyncGarbage
 from tests.utils import assert_matches_type
-from jocall3.types.corporate.treasury import CashFlowForecastResponse
+from garbage.types.corporate.treasury import CashFlowForecastResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -19,22 +19,21 @@ class TestCashFlow:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_method_forecast(self, client: Jocall3) -> None:
+    def test_method_forecast(self, client: Garbage) -> None:
         cash_flow = client.corporate.treasury.cash_flow.forecast()
         assert_matches_type(CashFlowForecastResponse, cash_flow, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_method_forecast_with_all_params(self, client: Jocall3) -> None:
+    def test_method_forecast_with_all_params(self, client: Garbage) -> None:
         cash_flow = client.corporate.treasury.cash_flow.forecast(
-            forecast_horizon_days=0,
-            include_scenario_analysis=True,
+            horizon_days=0,
         )
         assert_matches_type(CashFlowForecastResponse, cash_flow, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_raw_response_forecast(self, client: Jocall3) -> None:
+    def test_raw_response_forecast(self, client: Garbage) -> None:
         response = client.corporate.treasury.cash_flow.with_raw_response.forecast()
 
         assert response.is_closed is True
@@ -44,7 +43,7 @@ class TestCashFlow:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    def test_streaming_response_forecast(self, client: Jocall3) -> None:
+    def test_streaming_response_forecast(self, client: Garbage) -> None:
         with client.corporate.treasury.cash_flow.with_streaming_response.forecast() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
@@ -62,22 +61,21 @@ class TestAsyncCashFlow:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_method_forecast(self, async_client: AsyncJocall3) -> None:
+    async def test_method_forecast(self, async_client: AsyncGarbage) -> None:
         cash_flow = await async_client.corporate.treasury.cash_flow.forecast()
         assert_matches_type(CashFlowForecastResponse, cash_flow, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_method_forecast_with_all_params(self, async_client: AsyncJocall3) -> None:
+    async def test_method_forecast_with_all_params(self, async_client: AsyncGarbage) -> None:
         cash_flow = await async_client.corporate.treasury.cash_flow.forecast(
-            forecast_horizon_days=0,
-            include_scenario_analysis=True,
+            horizon_days=0,
         )
         assert_matches_type(CashFlowForecastResponse, cash_flow, path=["response"])
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_raw_response_forecast(self, async_client: AsyncJocall3) -> None:
+    async def test_raw_response_forecast(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.treasury.cash_flow.with_raw_response.forecast()
 
         assert response.is_closed is True
@@ -87,7 +85,7 @@ class TestAsyncCashFlow:
 
     @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
-    async def test_streaming_response_forecast(self, async_client: AsyncJocall3) -> None:
+    async def test_streaming_response_forecast(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.treasury.cash_flow.with_streaming_response.forecast() as response:
             assert not response.is_closed
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
