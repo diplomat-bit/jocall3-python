@@ -1,13 +1,42 @@
-.gthub/name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
+name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on:
   push:
     tags:
       - "*"
 
+permissions:
+  contents: read
+
 jobs:
+  security-checks:
+    name: Security checks 🔐
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install security tooling
+        run: |
+          pip install pip-audit bandit
+
+      - name: Dependency vulnerability scan (pip-audit)
+        run: pip-audit
+
+      - name: Static security analysis (bandit)
+        run: bandit -r . -x tests
+
   build:
     name: Build distribution 📦
+    needs: security-checks
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +47,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
       - name: Install build tooling
         run: python -m pip install --upgrade build
@@ -33,7 +62,7 @@ jobs:
           path: dist/
 
   publish-to-pypi:
-    name: Publish to PyPI
+    name: Publish to PyPI 🚀
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -43,8 +72,7 @@ jobs:
       id-token: write
 
     steps:
-      - name: Download distributions
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           name: python-package-distributions
           path: dist/
@@ -53,7 +81,7 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
 
   publish-to-testpypi:
-    name: Publish to TestPyPI
+    name: Publish to TestPyPI 🧪
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -63,8 +91,7 @@ jobs:
       id-token: write
 
     steps:
-      - name: Download distributions
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           name: python-package-distributions
           path: dist/
