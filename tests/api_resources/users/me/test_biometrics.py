@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestBiometrics:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_enroll(self, client: Garbage) -> None:
         biometric = client.users.me.biometrics.enroll(
@@ -29,7 +29,7 @@ class TestBiometrics:
         )
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_enroll(self, client: Garbage) -> None:
         response = client.users.me.biometrics.with_raw_response.enroll(
@@ -42,7 +42,7 @@ class TestBiometrics:
         biometric = response.parse()
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_enroll(self, client: Garbage) -> None:
         with client.users.me.biometrics.with_streaming_response.enroll(
@@ -57,13 +57,13 @@ class TestBiometrics:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_remove_all(self, client: Garbage) -> None:
         biometric = client.users.me.biometrics.remove_all()
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_remove_all(self, client: Garbage) -> None:
         response = client.users.me.biometrics.with_raw_response.remove_all()
@@ -73,7 +73,7 @@ class TestBiometrics:
         biometric = response.parse()
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_remove_all(self, client: Garbage) -> None:
         with client.users.me.biometrics.with_streaming_response.remove_all() as response:
@@ -85,13 +85,13 @@ class TestBiometrics:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_status(self, client: Garbage) -> None:
         biometric = client.users.me.biometrics.retrieve_status()
         assert_matches_type(BiometricRetrieveStatusResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve_status(self, client: Garbage) -> None:
         response = client.users.me.biometrics.with_raw_response.retrieve_status()
@@ -101,7 +101,7 @@ class TestBiometrics:
         biometric = response.parse()
         assert_matches_type(BiometricRetrieveStatusResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_status(self, client: Garbage) -> None:
         with client.users.me.biometrics.with_streaming_response.retrieve_status() as response:
@@ -113,7 +113,7 @@ class TestBiometrics:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_verify(self, client: Garbage) -> None:
         biometric = client.users.me.biometrics.verify(
@@ -121,7 +121,7 @@ class TestBiometrics:
         )
         assert_matches_type(BiometricVerifyResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_verify(self, client: Garbage) -> None:
         response = client.users.me.biometrics.with_raw_response.verify(
@@ -133,7 +133,7 @@ class TestBiometrics:
         biometric = response.parse()
         assert_matches_type(BiometricVerifyResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_verify(self, client: Garbage) -> None:
         with client.users.me.biometrics.with_streaming_response.verify(
@@ -153,7 +153,7 @@ class TestAsyncBiometrics:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_enroll(self, async_client: AsyncGarbage) -> None:
         biometric = await async_client.users.me.biometrics.enroll(
@@ -162,7 +162,7 @@ class TestAsyncBiometrics:
         )
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_enroll(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.biometrics.with_raw_response.enroll(
@@ -175,7 +175,7 @@ class TestAsyncBiometrics:
         biometric = await response.parse()
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_enroll(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.biometrics.with_streaming_response.enroll(
@@ -190,13 +190,13 @@ class TestAsyncBiometrics:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_remove_all(self, async_client: AsyncGarbage) -> None:
         biometric = await async_client.users.me.biometrics.remove_all()
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_remove_all(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.biometrics.with_raw_response.remove_all()
@@ -206,7 +206,7 @@ class TestAsyncBiometrics:
         biometric = await response.parse()
         assert biometric is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_remove_all(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.biometrics.with_streaming_response.remove_all() as response:
@@ -218,13 +218,13 @@ class TestAsyncBiometrics:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_status(self, async_client: AsyncGarbage) -> None:
         biometric = await async_client.users.me.biometrics.retrieve_status()
         assert_matches_type(BiometricRetrieveStatusResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_status(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.biometrics.with_raw_response.retrieve_status()
@@ -234,7 +234,7 @@ class TestAsyncBiometrics:
         biometric = await response.parse()
         assert_matches_type(BiometricRetrieveStatusResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_status(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.biometrics.with_streaming_response.retrieve_status() as response:
@@ -246,7 +246,7 @@ class TestAsyncBiometrics:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_verify(self, async_client: AsyncGarbage) -> None:
         biometric = await async_client.users.me.biometrics.verify(
@@ -254,7 +254,7 @@ class TestAsyncBiometrics:
         )
         assert_matches_type(BiometricVerifyResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_verify(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.biometrics.with_raw_response.verify(
@@ -266,7 +266,7 @@ class TestAsyncBiometrics:
         biometric = await response.parse()
         assert_matches_type(BiometricVerifyResponse, biometric, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_verify(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.biometrics.with_streaming_response.verify(

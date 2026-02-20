@@ -15,7 +15,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestContracts:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_deploy(self, client: Garbage) -> None:
         contract = client.web3.contracts.deploy(
@@ -24,7 +24,7 @@ class TestContracts:
         )
         assert contract is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_deploy(self, client: Garbage) -> None:
         response = client.web3.contracts.with_raw_response.deploy(
@@ -37,7 +37,7 @@ class TestContracts:
         contract = response.parse()
         assert contract is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_deploy(self, client: Garbage) -> None:
         with client.web3.contracts.with_streaming_response.deploy(
@@ -58,7 +58,7 @@ class TestAsyncContracts:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_deploy(self, async_client: AsyncGarbage) -> None:
         contract = await async_client.web3.contracts.deploy(
@@ -67,7 +67,7 @@ class TestAsyncContracts:
         )
         assert contract is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_deploy(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.contracts.with_raw_response.deploy(
@@ -80,7 +80,7 @@ class TestAsyncContracts:
         contract = await response.parse()
         assert contract is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_deploy(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.contracts.with_streaming_response.deploy(

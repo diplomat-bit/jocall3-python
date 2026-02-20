@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestFraud:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_analyze_transaction(self, client: Garbage) -> None:
         fraud = client.corporate.risk.fraud.analyze_transaction(
@@ -25,7 +25,7 @@ class TestFraud:
         )
         assert_matches_type(FraudAnalyzeTransactionResponse, fraud, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_analyze_transaction(self, client: Garbage) -> None:
         response = client.corporate.risk.fraud.with_raw_response.analyze_transaction(
@@ -37,7 +37,7 @@ class TestFraud:
         fraud = response.parse()
         assert_matches_type(FraudAnalyzeTransactionResponse, fraud, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_analyze_transaction(self, client: Garbage) -> None:
         with client.corporate.risk.fraud.with_streaming_response.analyze_transaction(
@@ -57,7 +57,7 @@ class TestAsyncFraud:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_analyze_transaction(self, async_client: AsyncGarbage) -> None:
         fraud = await async_client.corporate.risk.fraud.analyze_transaction(
@@ -65,7 +65,7 @@ class TestAsyncFraud:
         )
         assert_matches_type(FraudAnalyzeTransactionResponse, fraud, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_analyze_transaction(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.risk.fraud.with_raw_response.analyze_transaction(
@@ -77,7 +77,7 @@ class TestAsyncFraud:
         fraud = await response.parse()
         assert_matches_type(FraudAnalyzeTransactionResponse, fraud, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_analyze_transaction(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.risk.fraud.with_streaming_response.analyze_transaction(

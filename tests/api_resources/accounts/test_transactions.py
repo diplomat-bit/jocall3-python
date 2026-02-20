@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestTransactions:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_archived(self, client: Garbage) -> None:
         transaction = client.accounts.transactions.retrieve_archived(
@@ -28,7 +28,7 @@ class TestTransactions:
         )
         assert_matches_type(TransactionRetrieveArchivedResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_archived_with_all_params(self, client: Garbage) -> None:
         transaction = client.accounts.transactions.retrieve_archived(
@@ -37,7 +37,7 @@ class TestTransactions:
         )
         assert_matches_type(TransactionRetrieveArchivedResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve_archived(self, client: Garbage) -> None:
         response = client.accounts.transactions.with_raw_response.retrieve_archived(
@@ -49,7 +49,7 @@ class TestTransactions:
         transaction = response.parse()
         assert_matches_type(TransactionRetrieveArchivedResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_archived(self, client: Garbage) -> None:
         with client.accounts.transactions.with_streaming_response.retrieve_archived(
@@ -63,7 +63,7 @@ class TestTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve_archived(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):
@@ -71,7 +71,7 @@ class TestTransactions:
                 account_id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_pending(self, client: Garbage) -> None:
         transaction = client.accounts.transactions.retrieve_pending(
@@ -79,7 +79,7 @@ class TestTransactions:
         )
         assert_matches_type(TransactionRetrievePendingResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve_pending(self, client: Garbage) -> None:
         response = client.accounts.transactions.with_raw_response.retrieve_pending(
@@ -91,7 +91,7 @@ class TestTransactions:
         transaction = response.parse()
         assert_matches_type(TransactionRetrievePendingResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_pending(self, client: Garbage) -> None:
         with client.accounts.transactions.with_streaming_response.retrieve_pending(
@@ -105,7 +105,7 @@ class TestTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve_pending(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):
@@ -119,7 +119,7 @@ class TestAsyncTransactions:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_archived(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.accounts.transactions.retrieve_archived(
@@ -127,7 +127,7 @@ class TestAsyncTransactions:
         )
         assert_matches_type(TransactionRetrieveArchivedResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_archived_with_all_params(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.accounts.transactions.retrieve_archived(
@@ -136,7 +136,7 @@ class TestAsyncTransactions:
         )
         assert_matches_type(TransactionRetrieveArchivedResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_archived(self, async_client: AsyncGarbage) -> None:
         response = await async_client.accounts.transactions.with_raw_response.retrieve_archived(
@@ -148,7 +148,7 @@ class TestAsyncTransactions:
         transaction = await response.parse()
         assert_matches_type(TransactionRetrieveArchivedResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_archived(self, async_client: AsyncGarbage) -> None:
         async with async_client.accounts.transactions.with_streaming_response.retrieve_archived(
@@ -162,7 +162,7 @@ class TestAsyncTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve_archived(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):
@@ -170,7 +170,7 @@ class TestAsyncTransactions:
                 account_id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_pending(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.accounts.transactions.retrieve_pending(
@@ -178,7 +178,7 @@ class TestAsyncTransactions:
         )
         assert_matches_type(TransactionRetrievePendingResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_pending(self, async_client: AsyncGarbage) -> None:
         response = await async_client.accounts.transactions.with_raw_response.retrieve_pending(
@@ -190,7 +190,7 @@ class TestAsyncTransactions:
         transaction = await response.parse()
         assert_matches_type(TransactionRetrievePendingResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_pending(self, async_client: AsyncGarbage) -> None:
         async with async_client.accounts.transactions.with_streaming_response.retrieve_pending(
@@ -204,7 +204,7 @@ class TestAsyncTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve_pending(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `account_id` but received ''"):

@@ -22,7 +22,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestCompliance:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_screen_media(self, client: Garbage) -> None:
         compliance = client.corporate.compliance.screen_media(
@@ -30,7 +30,7 @@ class TestCompliance:
         )
         assert_matches_type(ComplianceScreenMediaResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_screen_media_with_all_params(self, client: Garbage) -> None:
         compliance = client.corporate.compliance.screen_media(
@@ -39,7 +39,7 @@ class TestCompliance:
         )
         assert_matches_type(ComplianceScreenMediaResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_screen_media(self, client: Garbage) -> None:
         response = client.corporate.compliance.with_raw_response.screen_media(
@@ -51,7 +51,7 @@ class TestCompliance:
         compliance = response.parse()
         assert_matches_type(ComplianceScreenMediaResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_screen_media(self, client: Garbage) -> None:
         with client.corporate.compliance.with_streaming_response.screen_media(
@@ -65,7 +65,7 @@ class TestCompliance:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_screen_pep(self, client: Garbage) -> None:
         compliance = client.corporate.compliance.screen_pep(
@@ -73,7 +73,7 @@ class TestCompliance:
         )
         assert_matches_type(ComplianceScreenPepResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_screen_pep_with_all_params(self, client: Garbage) -> None:
         compliance = client.corporate.compliance.screen_pep(
@@ -82,7 +82,7 @@ class TestCompliance:
         )
         assert_matches_type(ComplianceScreenPepResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_screen_pep(self, client: Garbage) -> None:
         response = client.corporate.compliance.with_raw_response.screen_pep(
@@ -94,7 +94,7 @@ class TestCompliance:
         compliance = response.parse()
         assert_matches_type(ComplianceScreenPepResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_screen_pep(self, client: Garbage) -> None:
         with client.corporate.compliance.with_streaming_response.screen_pep(
@@ -108,7 +108,7 @@ class TestCompliance:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_screen_sanctions(self, client: Garbage) -> None:
         compliance = client.corporate.compliance.screen_sanctions(
@@ -116,7 +116,7 @@ class TestCompliance:
         )
         assert_matches_type(ComplianceScreenSanctionsResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_screen_sanctions_with_all_params(self, client: Garbage) -> None:
         compliance = client.corporate.compliance.screen_sanctions(
@@ -134,7 +134,7 @@ class TestCompliance:
         )
         assert_matches_type(ComplianceScreenSanctionsResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_screen_sanctions(self, client: Garbage) -> None:
         response = client.corporate.compliance.with_raw_response.screen_sanctions(
@@ -146,7 +146,7 @@ class TestCompliance:
         compliance = response.parse()
         assert_matches_type(ComplianceScreenSanctionsResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_screen_sanctions(self, client: Garbage) -> None:
         with client.corporate.compliance.with_streaming_response.screen_sanctions(
@@ -166,7 +166,7 @@ class TestAsyncCompliance:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_screen_media(self, async_client: AsyncGarbage) -> None:
         compliance = await async_client.corporate.compliance.screen_media(
@@ -174,7 +174,7 @@ class TestAsyncCompliance:
         )
         assert_matches_type(ComplianceScreenMediaResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_screen_media_with_all_params(self, async_client: AsyncGarbage) -> None:
         compliance = await async_client.corporate.compliance.screen_media(
@@ -183,7 +183,7 @@ class TestAsyncCompliance:
         )
         assert_matches_type(ComplianceScreenMediaResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_screen_media(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.compliance.with_raw_response.screen_media(
@@ -195,7 +195,7 @@ class TestAsyncCompliance:
         compliance = await response.parse()
         assert_matches_type(ComplianceScreenMediaResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_screen_media(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.compliance.with_streaming_response.screen_media(
@@ -209,7 +209,7 @@ class TestAsyncCompliance:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_screen_pep(self, async_client: AsyncGarbage) -> None:
         compliance = await async_client.corporate.compliance.screen_pep(
@@ -217,7 +217,7 @@ class TestAsyncCompliance:
         )
         assert_matches_type(ComplianceScreenPepResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_screen_pep_with_all_params(self, async_client: AsyncGarbage) -> None:
         compliance = await async_client.corporate.compliance.screen_pep(
@@ -226,7 +226,7 @@ class TestAsyncCompliance:
         )
         assert_matches_type(ComplianceScreenPepResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_screen_pep(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.compliance.with_raw_response.screen_pep(
@@ -238,7 +238,7 @@ class TestAsyncCompliance:
         compliance = await response.parse()
         assert_matches_type(ComplianceScreenPepResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_screen_pep(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.compliance.with_streaming_response.screen_pep(
@@ -252,7 +252,7 @@ class TestAsyncCompliance:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_screen_sanctions(self, async_client: AsyncGarbage) -> None:
         compliance = await async_client.corporate.compliance.screen_sanctions(
@@ -260,7 +260,7 @@ class TestAsyncCompliance:
         )
         assert_matches_type(ComplianceScreenSanctionsResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_screen_sanctions_with_all_params(self, async_client: AsyncGarbage) -> None:
         compliance = await async_client.corporate.compliance.screen_sanctions(
@@ -278,7 +278,7 @@ class TestAsyncCompliance:
         )
         assert_matches_type(ComplianceScreenSanctionsResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_screen_sanctions(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.compliance.with_raw_response.screen_sanctions(
@@ -290,7 +290,7 @@ class TestAsyncCompliance:
         compliance = await response.parse()
         assert_matches_type(ComplianceScreenSanctionsResponse, compliance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_screen_sanctions(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.compliance.with_streaming_response.screen_sanctions(

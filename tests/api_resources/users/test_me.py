@@ -17,13 +17,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestMe:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: Garbage) -> None:
         me = client.users.me.retrieve()
         assert_matches_type(MeRetrieveResponse, me, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: Garbage) -> None:
         response = client.users.me.with_raw_response.retrieve()
@@ -33,7 +33,7 @@ class TestMe:
         me = response.parse()
         assert_matches_type(MeRetrieveResponse, me, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: Garbage) -> None:
         with client.users.me.with_streaming_response.retrieve() as response:
@@ -45,13 +45,13 @@ class TestMe:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update(self, client: Garbage) -> None:
         me = client.users.me.update()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: Garbage) -> None:
         response = client.users.me.with_raw_response.update()
@@ -61,7 +61,7 @@ class TestMe:
         me = response.parse()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: Garbage) -> None:
         with client.users.me.with_streaming_response.update() as response:
@@ -73,13 +73,13 @@ class TestMe:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_delete(self, client: Garbage) -> None:
         me = client.users.me.delete()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_delete(self, client: Garbage) -> None:
         response = client.users.me.with_raw_response.delete()
@@ -89,7 +89,7 @@ class TestMe:
         me = response.parse()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_delete(self, client: Garbage) -> None:
         with client.users.me.with_streaming_response.delete() as response:
@@ -107,13 +107,13 @@ class TestAsyncMe:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncGarbage) -> None:
         me = await async_client.users.me.retrieve()
         assert_matches_type(MeRetrieveResponse, me, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.with_raw_response.retrieve()
@@ -123,7 +123,7 @@ class TestAsyncMe:
         me = await response.parse()
         assert_matches_type(MeRetrieveResponse, me, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.with_streaming_response.retrieve() as response:
@@ -135,13 +135,13 @@ class TestAsyncMe:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncGarbage) -> None:
         me = await async_client.users.me.update()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.with_raw_response.update()
@@ -151,7 +151,7 @@ class TestAsyncMe:
         me = await response.parse()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.with_streaming_response.update() as response:
@@ -163,13 +163,13 @@ class TestAsyncMe:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_delete(self, async_client: AsyncGarbage) -> None:
         me = await async_client.users.me.delete()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_delete(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.with_raw_response.delete()
@@ -179,7 +179,7 @@ class TestAsyncMe:
         me = await response.parse()
         assert me is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_delete(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.with_streaming_response.delete() as response:

@@ -15,7 +15,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestVerification:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_compare_biometric(self, client: Garbage) -> None:
         verification = client.system.verification.compare_biometric(
@@ -24,7 +24,7 @@ class TestVerification:
         )
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_compare_biometric(self, client: Garbage) -> None:
         response = client.system.verification.with_raw_response.compare_biometric(
@@ -37,7 +37,7 @@ class TestVerification:
         verification = response.parse()
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_compare_biometric(self, client: Garbage) -> None:
         with client.system.verification.with_streaming_response.compare_biometric(
@@ -52,13 +52,13 @@ class TestVerification:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_verify_document(self, client: Garbage) -> None:
         verification = client.system.verification.verify_document()
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_verify_document(self, client: Garbage) -> None:
         response = client.system.verification.with_raw_response.verify_document()
@@ -68,7 +68,7 @@ class TestVerification:
         verification = response.parse()
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_verify_document(self, client: Garbage) -> None:
         with client.system.verification.with_streaming_response.verify_document() as response:
@@ -86,7 +86,7 @@ class TestAsyncVerification:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_compare_biometric(self, async_client: AsyncGarbage) -> None:
         verification = await async_client.system.verification.compare_biometric(
@@ -95,7 +95,7 @@ class TestAsyncVerification:
         )
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_compare_biometric(self, async_client: AsyncGarbage) -> None:
         response = await async_client.system.verification.with_raw_response.compare_biometric(
@@ -108,7 +108,7 @@ class TestAsyncVerification:
         verification = await response.parse()
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_compare_biometric(self, async_client: AsyncGarbage) -> None:
         async with async_client.system.verification.with_streaming_response.compare_biometric(
@@ -123,13 +123,13 @@ class TestAsyncVerification:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_verify_document(self, async_client: AsyncGarbage) -> None:
         verification = await async_client.system.verification.verify_document()
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_verify_document(self, async_client: AsyncGarbage) -> None:
         response = await async_client.system.verification.with_raw_response.verify_document()
@@ -139,7 +139,7 @@ class TestAsyncVerification:
         verification = await response.parse()
         assert verification is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_verify_document(self, async_client: AsyncGarbage) -> None:
         async with async_client.system.verification.with_streaming_response.verify_document() as response:

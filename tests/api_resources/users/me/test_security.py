@@ -17,13 +17,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestSecurity:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_log(self, client: Garbage) -> None:
         security = client.users.me.security.retrieve_log()
         assert_matches_type(SecurityRetrieveLogResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_log_with_all_params(self, client: Garbage) -> None:
         security = client.users.me.security.retrieve_log(
@@ -32,7 +32,7 @@ class TestSecurity:
         )
         assert_matches_type(SecurityRetrieveLogResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve_log(self, client: Garbage) -> None:
         response = client.users.me.security.with_raw_response.retrieve_log()
@@ -42,7 +42,7 @@ class TestSecurity:
         security = response.parse()
         assert_matches_type(SecurityRetrieveLogResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_log(self, client: Garbage) -> None:
         with client.users.me.security.with_streaming_response.retrieve_log() as response:
@@ -54,13 +54,13 @@ class TestSecurity:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_rotate_keys(self, client: Garbage) -> None:
         security = client.users.me.security.rotate_keys()
         assert_matches_type(SecurityRotateKeysResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_rotate_keys(self, client: Garbage) -> None:
         response = client.users.me.security.with_raw_response.rotate_keys()
@@ -70,7 +70,7 @@ class TestSecurity:
         security = response.parse()
         assert_matches_type(SecurityRotateKeysResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_rotate_keys(self, client: Garbage) -> None:
         with client.users.me.security.with_streaming_response.rotate_keys() as response:
@@ -88,13 +88,13 @@ class TestAsyncSecurity:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_log(self, async_client: AsyncGarbage) -> None:
         security = await async_client.users.me.security.retrieve_log()
         assert_matches_type(SecurityRetrieveLogResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_log_with_all_params(self, async_client: AsyncGarbage) -> None:
         security = await async_client.users.me.security.retrieve_log(
@@ -103,7 +103,7 @@ class TestAsyncSecurity:
         )
         assert_matches_type(SecurityRetrieveLogResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_log(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.security.with_raw_response.retrieve_log()
@@ -113,7 +113,7 @@ class TestAsyncSecurity:
         security = await response.parse()
         assert_matches_type(SecurityRetrieveLogResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_log(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.security.with_streaming_response.retrieve_log() as response:
@@ -125,13 +125,13 @@ class TestAsyncSecurity:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_rotate_keys(self, async_client: AsyncGarbage) -> None:
         security = await async_client.users.me.security.rotate_keys()
         assert_matches_type(SecurityRotateKeysResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_rotate_keys(self, async_client: AsyncGarbage) -> None:
         response = await async_client.users.me.security.with_raw_response.rotate_keys()
@@ -141,7 +141,7 @@ class TestAsyncSecurity:
         security = await response.parse()
         assert_matches_type(SecurityRotateKeysResponse, security, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_rotate_keys(self, async_client: AsyncGarbage) -> None:
         async with async_client.users.me.security.with_streaming_response.rotate_keys() as response:

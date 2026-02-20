@@ -17,13 +17,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestPerformance:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_historical(self, client: Garbage) -> None:
         performance = client.investments.performance.get_historical()
         assert_matches_type(PerformanceGetHistoricalResponse, performance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_historical_with_all_params(self, client: Garbage) -> None:
         performance = client.investments.performance.get_historical(
@@ -31,7 +31,7 @@ class TestPerformance:
         )
         assert_matches_type(PerformanceGetHistoricalResponse, performance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_get_historical(self, client: Garbage) -> None:
         response = client.investments.performance.with_raw_response.get_historical()
@@ -41,7 +41,7 @@ class TestPerformance:
         performance = response.parse()
         assert_matches_type(PerformanceGetHistoricalResponse, performance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_get_historical(self, client: Garbage) -> None:
         with client.investments.performance.with_streaming_response.get_historical() as response:
@@ -59,13 +59,13 @@ class TestAsyncPerformance:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_historical(self, async_client: AsyncGarbage) -> None:
         performance = await async_client.investments.performance.get_historical()
         assert_matches_type(PerformanceGetHistoricalResponse, performance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_historical_with_all_params(self, async_client: AsyncGarbage) -> None:
         performance = await async_client.investments.performance.get_historical(
@@ -73,7 +73,7 @@ class TestAsyncPerformance:
         )
         assert_matches_type(PerformanceGetHistoricalResponse, performance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_get_historical(self, async_client: AsyncGarbage) -> None:
         response = await async_client.investments.performance.with_raw_response.get_historical()
@@ -83,7 +83,7 @@ class TestAsyncPerformance:
         performance = await response.parse()
         assert_matches_type(PerformanceGetHistoricalResponse, performance, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_get_historical(self, async_client: AsyncGarbage) -> None:
         async with async_client.investments.performance.with_streaming_response.get_historical() as response:

@@ -19,13 +19,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestLiquidity:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_configure_pooling(self, client: Garbage) -> None:
         liquidity = client.corporate.treasury.liquidity.configure_pooling()
         assert liquidity is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_configure_pooling_with_all_params(self, client: Garbage) -> None:
         liquidity = client.corporate.treasury.liquidity.configure_pooling(
@@ -34,7 +34,7 @@ class TestLiquidity:
         )
         assert liquidity is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_configure_pooling(self, client: Garbage) -> None:
         response = client.corporate.treasury.liquidity.with_raw_response.configure_pooling()
@@ -44,7 +44,7 @@ class TestLiquidity:
         liquidity = response.parse()
         assert liquidity is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_configure_pooling(self, client: Garbage) -> None:
         with client.corporate.treasury.liquidity.with_streaming_response.configure_pooling() as response:
@@ -56,13 +56,13 @@ class TestLiquidity:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_optimize(self, client: Garbage) -> None:
         liquidity = client.corporate.treasury.liquidity.optimize()
         assert_matches_type(LiquidityOptimizeResponse, liquidity, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_optimize_with_all_params(self, client: Garbage) -> None:
         liquidity = client.corporate.treasury.liquidity.optimize(
@@ -71,7 +71,7 @@ class TestLiquidity:
         )
         assert_matches_type(LiquidityOptimizeResponse, liquidity, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_optimize(self, client: Garbage) -> None:
         response = client.corporate.treasury.liquidity.with_raw_response.optimize()
@@ -81,7 +81,7 @@ class TestLiquidity:
         liquidity = response.parse()
         assert_matches_type(LiquidityOptimizeResponse, liquidity, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_optimize(self, client: Garbage) -> None:
         with client.corporate.treasury.liquidity.with_streaming_response.optimize() as response:
@@ -99,13 +99,13 @@ class TestAsyncLiquidity:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_configure_pooling(self, async_client: AsyncGarbage) -> None:
         liquidity = await async_client.corporate.treasury.liquidity.configure_pooling()
         assert liquidity is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_configure_pooling_with_all_params(self, async_client: AsyncGarbage) -> None:
         liquidity = await async_client.corporate.treasury.liquidity.configure_pooling(
@@ -114,7 +114,7 @@ class TestAsyncLiquidity:
         )
         assert liquidity is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_configure_pooling(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.treasury.liquidity.with_raw_response.configure_pooling()
@@ -124,7 +124,7 @@ class TestAsyncLiquidity:
         liquidity = await response.parse()
         assert liquidity is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_configure_pooling(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.treasury.liquidity.with_streaming_response.configure_pooling() as response:
@@ -136,13 +136,13 @@ class TestAsyncLiquidity:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_optimize(self, async_client: AsyncGarbage) -> None:
         liquidity = await async_client.corporate.treasury.liquidity.optimize()
         assert_matches_type(LiquidityOptimizeResponse, liquidity, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_optimize_with_all_params(self, async_client: AsyncGarbage) -> None:
         liquidity = await async_client.corporate.treasury.liquidity.optimize(
@@ -151,7 +151,7 @@ class TestAsyncLiquidity:
         )
         assert_matches_type(LiquidityOptimizeResponse, liquidity, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_optimize(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.treasury.liquidity.with_raw_response.optimize()
@@ -161,7 +161,7 @@ class TestAsyncLiquidity:
         liquidity = await response.parse()
         assert_matches_type(LiquidityOptimizeResponse, liquidity, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_optimize(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.treasury.liquidity.with_streaming_response.optimize() as response:

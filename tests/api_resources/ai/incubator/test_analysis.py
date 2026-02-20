@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestAnalysis:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_competitors(self, client: Garbage) -> None:
         analysis = client.ai.incubator.analysis.competitors(
@@ -29,7 +29,7 @@ class TestAnalysis:
         )
         assert_matches_type(AnalysisCompetitorsResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_competitors(self, client: Garbage) -> None:
         response = client.ai.incubator.analysis.with_raw_response.competitors(
@@ -42,7 +42,7 @@ class TestAnalysis:
         analysis = response.parse()
         assert_matches_type(AnalysisCompetitorsResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_competitors(self, client: Garbage) -> None:
         with client.ai.incubator.analysis.with_streaming_response.competitors(
@@ -57,7 +57,7 @@ class TestAnalysis:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_swot(self, client: Garbage) -> None:
         analysis = client.ai.incubator.analysis.swot(
@@ -65,7 +65,7 @@ class TestAnalysis:
         )
         assert_matches_type(AnalysisSwotResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_swot(self, client: Garbage) -> None:
         response = client.ai.incubator.analysis.with_raw_response.swot(
@@ -77,7 +77,7 @@ class TestAnalysis:
         analysis = response.parse()
         assert_matches_type(AnalysisSwotResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_swot(self, client: Garbage) -> None:
         with client.ai.incubator.analysis.with_streaming_response.swot(
@@ -97,7 +97,7 @@ class TestAsyncAnalysis:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_competitors(self, async_client: AsyncGarbage) -> None:
         analysis = await async_client.ai.incubator.analysis.competitors(
@@ -106,7 +106,7 @@ class TestAsyncAnalysis:
         )
         assert_matches_type(AnalysisCompetitorsResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_competitors(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.incubator.analysis.with_raw_response.competitors(
@@ -119,7 +119,7 @@ class TestAsyncAnalysis:
         analysis = await response.parse()
         assert_matches_type(AnalysisCompetitorsResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_competitors(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.incubator.analysis.with_streaming_response.competitors(
@@ -134,7 +134,7 @@ class TestAsyncAnalysis:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_swot(self, async_client: AsyncGarbage) -> None:
         analysis = await async_client.ai.incubator.analysis.swot(
@@ -142,7 +142,7 @@ class TestAsyncAnalysis:
         )
         assert_matches_type(AnalysisSwotResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_swot(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.incubator.analysis.with_raw_response.swot(
@@ -154,7 +154,7 @@ class TestAsyncAnalysis:
         analysis = await response.parse()
         assert_matches_type(AnalysisSwotResponse, analysis, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_swot(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.incubator.analysis.with_streaming_response.swot(

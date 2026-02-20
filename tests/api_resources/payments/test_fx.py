@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestFx:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_book_deal(self, client: Garbage) -> None:
         fx = client.payments.fx.book_deal(
@@ -30,7 +30,7 @@ class TestFx:
         )
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_book_deal(self, client: Garbage) -> None:
         response = client.payments.fx.with_raw_response.book_deal(
@@ -44,7 +44,7 @@ class TestFx:
         fx = response.parse()
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_book_deal(self, client: Garbage) -> None:
         with client.payments.fx.with_streaming_response.book_deal(
@@ -60,7 +60,7 @@ class TestFx:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_execute_conversion(self, client: Garbage) -> None:
         fx = client.payments.fx.execute_conversion(
@@ -70,7 +70,7 @@ class TestFx:
         )
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_execute_conversion(self, client: Garbage) -> None:
         response = client.payments.fx.with_raw_response.execute_conversion(
@@ -84,7 +84,7 @@ class TestFx:
         fx = response.parse()
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_execute_conversion(self, client: Garbage) -> None:
         with client.payments.fx.with_streaming_response.execute_conversion(
@@ -100,7 +100,7 @@ class TestFx:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_get_rates(self, client: Garbage) -> None:
         fx = client.payments.fx.get_rates(
@@ -108,7 +108,7 @@ class TestFx:
         )
         assert_matches_type(FxGetRatesResponse, fx, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_get_rates(self, client: Garbage) -> None:
         response = client.payments.fx.with_raw_response.get_rates(
@@ -120,7 +120,7 @@ class TestFx:
         fx = response.parse()
         assert_matches_type(FxGetRatesResponse, fx, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_get_rates(self, client: Garbage) -> None:
         with client.payments.fx.with_streaming_response.get_rates(
@@ -140,7 +140,7 @@ class TestAsyncFx:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_book_deal(self, async_client: AsyncGarbage) -> None:
         fx = await async_client.payments.fx.book_deal(
@@ -150,7 +150,7 @@ class TestAsyncFx:
         )
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_book_deal(self, async_client: AsyncGarbage) -> None:
         response = await async_client.payments.fx.with_raw_response.book_deal(
@@ -164,7 +164,7 @@ class TestAsyncFx:
         fx = await response.parse()
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_book_deal(self, async_client: AsyncGarbage) -> None:
         async with async_client.payments.fx.with_streaming_response.book_deal(
@@ -180,7 +180,7 @@ class TestAsyncFx:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_execute_conversion(self, async_client: AsyncGarbage) -> None:
         fx = await async_client.payments.fx.execute_conversion(
@@ -190,7 +190,7 @@ class TestAsyncFx:
         )
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_execute_conversion(self, async_client: AsyncGarbage) -> None:
         response = await async_client.payments.fx.with_raw_response.execute_conversion(
@@ -204,7 +204,7 @@ class TestAsyncFx:
         fx = await response.parse()
         assert fx is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_execute_conversion(self, async_client: AsyncGarbage) -> None:
         async with async_client.payments.fx.with_streaming_response.execute_conversion(
@@ -220,7 +220,7 @@ class TestAsyncFx:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_get_rates(self, async_client: AsyncGarbage) -> None:
         fx = await async_client.payments.fx.get_rates(
@@ -228,7 +228,7 @@ class TestAsyncFx:
         )
         assert_matches_type(FxGetRatesResponse, fx, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_get_rates(self, async_client: AsyncGarbage) -> None:
         response = await async_client.payments.fx.with_raw_response.get_rates(
@@ -240,7 +240,7 @@ class TestAsyncFx:
         fx = await response.parse()
         assert_matches_type(FxGetRatesResponse, fx, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_get_rates(self, async_client: AsyncGarbage) -> None:
         async with async_client.payments.fx.with_streaming_response.get_rates(

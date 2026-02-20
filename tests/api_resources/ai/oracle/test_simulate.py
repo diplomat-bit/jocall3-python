@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestSimulate:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create(self, client: Garbage) -> None:
         simulate = client.ai.oracle.simulate.create(
@@ -28,7 +28,7 @@ class TestSimulate:
         )
         assert_matches_type(SimulateCreateResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: Garbage) -> None:
         simulate = client.ai.oracle.simulate.create(
@@ -37,7 +37,7 @@ class TestSimulate:
         )
         assert_matches_type(SimulateCreateResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Garbage) -> None:
         response = client.ai.oracle.simulate.with_raw_response.create(
@@ -49,7 +49,7 @@ class TestSimulate:
         simulate = response.parse()
         assert_matches_type(SimulateCreateResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Garbage) -> None:
         with client.ai.oracle.simulate.with_streaming_response.create(
@@ -63,7 +63,7 @@ class TestSimulate:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_advanced(self, client: Garbage) -> None:
         simulate = client.ai.oracle.simulate.advanced(
@@ -72,7 +72,7 @@ class TestSimulate:
         )
         assert_matches_type(SimulateAdvancedResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_advanced(self, client: Garbage) -> None:
         response = client.ai.oracle.simulate.with_raw_response.advanced(
@@ -85,7 +85,7 @@ class TestSimulate:
         simulate = response.parse()
         assert_matches_type(SimulateAdvancedResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_advanced(self, client: Garbage) -> None:
         with client.ai.oracle.simulate.with_streaming_response.advanced(
@@ -100,7 +100,7 @@ class TestSimulate:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_monte_carlo(self, client: Garbage) -> None:
         simulate = client.ai.oracle.simulate.monte_carlo(
@@ -109,7 +109,7 @@ class TestSimulate:
         )
         assert simulate is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_monte_carlo(self, client: Garbage) -> None:
         response = client.ai.oracle.simulate.with_raw_response.monte_carlo(
@@ -122,7 +122,7 @@ class TestSimulate:
         simulate = response.parse()
         assert simulate is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_monte_carlo(self, client: Garbage) -> None:
         with client.ai.oracle.simulate.with_streaming_response.monte_carlo(
@@ -143,7 +143,7 @@ class TestAsyncSimulate:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncGarbage) -> None:
         simulate = await async_client.ai.oracle.simulate.create(
@@ -151,7 +151,7 @@ class TestAsyncSimulate:
         )
         assert_matches_type(SimulateCreateResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncGarbage) -> None:
         simulate = await async_client.ai.oracle.simulate.create(
@@ -160,7 +160,7 @@ class TestAsyncSimulate:
         )
         assert_matches_type(SimulateCreateResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.oracle.simulate.with_raw_response.create(
@@ -172,7 +172,7 @@ class TestAsyncSimulate:
         simulate = await response.parse()
         assert_matches_type(SimulateCreateResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.oracle.simulate.with_streaming_response.create(
@@ -186,7 +186,7 @@ class TestAsyncSimulate:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_advanced(self, async_client: AsyncGarbage) -> None:
         simulate = await async_client.ai.oracle.simulate.advanced(
@@ -195,7 +195,7 @@ class TestAsyncSimulate:
         )
         assert_matches_type(SimulateAdvancedResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_advanced(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.oracle.simulate.with_raw_response.advanced(
@@ -208,7 +208,7 @@ class TestAsyncSimulate:
         simulate = await response.parse()
         assert_matches_type(SimulateAdvancedResponse, simulate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_advanced(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.oracle.simulate.with_streaming_response.advanced(
@@ -223,7 +223,7 @@ class TestAsyncSimulate:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_monte_carlo(self, async_client: AsyncGarbage) -> None:
         simulate = await async_client.ai.oracle.simulate.monte_carlo(
@@ -232,7 +232,7 @@ class TestAsyncSimulate:
         )
         assert simulate is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_monte_carlo(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.oracle.simulate.with_raw_response.monte_carlo(
@@ -245,7 +245,7 @@ class TestAsyncSimulate:
         simulate = await response.parse()
         assert simulate is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_monte_carlo(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.oracle.simulate.with_streaming_response.monte_carlo(

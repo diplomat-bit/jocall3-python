@@ -15,7 +15,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestOffsets:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_purchase_credits(self, client: Garbage) -> None:
         offset = client.sustainability.offsets.purchase_credits(
@@ -24,7 +24,7 @@ class TestOffsets:
         )
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_purchase_credits_with_all_params(self, client: Garbage) -> None:
         offset = client.sustainability.offsets.purchase_credits(
@@ -34,7 +34,7 @@ class TestOffsets:
         )
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_purchase_credits(self, client: Garbage) -> None:
         response = client.sustainability.offsets.with_raw_response.purchase_credits(
@@ -47,7 +47,7 @@ class TestOffsets:
         offset = response.parse()
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_purchase_credits(self, client: Garbage) -> None:
         with client.sustainability.offsets.with_streaming_response.purchase_credits(
@@ -62,7 +62,7 @@ class TestOffsets:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retire_credits(self, client: Garbage) -> None:
         offset = client.sustainability.offsets.retire_credits(
@@ -70,7 +70,7 @@ class TestOffsets:
         )
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retire_credits(self, client: Garbage) -> None:
         response = client.sustainability.offsets.with_raw_response.retire_credits(
@@ -82,7 +82,7 @@ class TestOffsets:
         offset = response.parse()
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retire_credits(self, client: Garbage) -> None:
         with client.sustainability.offsets.with_streaming_response.retire_credits(
@@ -102,7 +102,7 @@ class TestAsyncOffsets:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_purchase_credits(self, async_client: AsyncGarbage) -> None:
         offset = await async_client.sustainability.offsets.purchase_credits(
@@ -111,7 +111,7 @@ class TestAsyncOffsets:
         )
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_purchase_credits_with_all_params(self, async_client: AsyncGarbage) -> None:
         offset = await async_client.sustainability.offsets.purchase_credits(
@@ -121,7 +121,7 @@ class TestAsyncOffsets:
         )
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_purchase_credits(self, async_client: AsyncGarbage) -> None:
         response = await async_client.sustainability.offsets.with_raw_response.purchase_credits(
@@ -134,7 +134,7 @@ class TestAsyncOffsets:
         offset = await response.parse()
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_purchase_credits(self, async_client: AsyncGarbage) -> None:
         async with async_client.sustainability.offsets.with_streaming_response.purchase_credits(
@@ -149,7 +149,7 @@ class TestAsyncOffsets:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retire_credits(self, async_client: AsyncGarbage) -> None:
         offset = await async_client.sustainability.offsets.retire_credits(
@@ -157,7 +157,7 @@ class TestAsyncOffsets:
         )
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retire_credits(self, async_client: AsyncGarbage) -> None:
         response = await async_client.sustainability.offsets.with_raw_response.retire_credits(
@@ -169,7 +169,7 @@ class TestAsyncOffsets:
         offset = await response.parse()
         assert offset is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retire_credits(self, async_client: AsyncGarbage) -> None:
         async with async_client.sustainability.offsets.with_streaming_response.retire_credits(

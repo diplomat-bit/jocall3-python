@@ -20,13 +20,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestImpact:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_global_green_projects(self, client: Garbage) -> None:
         impact = client.sustainability.impact.list_global_green_projects()
         assert_matches_type(ImpactListGlobalGreenProjectsResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_global_green_projects_with_all_params(self, client: Garbage) -> None:
         impact = client.sustainability.impact.list_global_green_projects(
@@ -34,7 +34,7 @@ class TestImpact:
         )
         assert_matches_type(ImpactListGlobalGreenProjectsResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list_global_green_projects(self, client: Garbage) -> None:
         response = client.sustainability.impact.with_raw_response.list_global_green_projects()
@@ -44,7 +44,7 @@ class TestImpact:
         impact = response.parse()
         assert_matches_type(ImpactListGlobalGreenProjectsResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list_global_green_projects(self, client: Garbage) -> None:
         with client.sustainability.impact.with_streaming_response.list_global_green_projects() as response:
@@ -56,13 +56,13 @@ class TestImpact:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve_portfolio_impact(self, client: Garbage) -> None:
         impact = client.sustainability.impact.retrieve_portfolio_impact()
         assert_matches_type(ImpactRetrievePortfolioImpactResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve_portfolio_impact(self, client: Garbage) -> None:
         response = client.sustainability.impact.with_raw_response.retrieve_portfolio_impact()
@@ -72,7 +72,7 @@ class TestImpact:
         impact = response.parse()
         assert_matches_type(ImpactRetrievePortfolioImpactResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_portfolio_impact(self, client: Garbage) -> None:
         with client.sustainability.impact.with_streaming_response.retrieve_portfolio_impact() as response:
@@ -90,13 +90,13 @@ class TestAsyncImpact:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_global_green_projects(self, async_client: AsyncGarbage) -> None:
         impact = await async_client.sustainability.impact.list_global_green_projects()
         assert_matches_type(ImpactListGlobalGreenProjectsResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_global_green_projects_with_all_params(self, async_client: AsyncGarbage) -> None:
         impact = await async_client.sustainability.impact.list_global_green_projects(
@@ -104,7 +104,7 @@ class TestAsyncImpact:
         )
         assert_matches_type(ImpactListGlobalGreenProjectsResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list_global_green_projects(self, async_client: AsyncGarbage) -> None:
         response = await async_client.sustainability.impact.with_raw_response.list_global_green_projects()
@@ -114,7 +114,7 @@ class TestAsyncImpact:
         impact = await response.parse()
         assert_matches_type(ImpactListGlobalGreenProjectsResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list_global_green_projects(self, async_client: AsyncGarbage) -> None:
         async with async_client.sustainability.impact.with_streaming_response.list_global_green_projects() as response:
@@ -126,13 +126,13 @@ class TestAsyncImpact:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve_portfolio_impact(self, async_client: AsyncGarbage) -> None:
         impact = await async_client.sustainability.impact.retrieve_portfolio_impact()
         assert_matches_type(ImpactRetrievePortfolioImpactResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_portfolio_impact(self, async_client: AsyncGarbage) -> None:
         response = await async_client.sustainability.impact.with_raw_response.retrieve_portfolio_impact()
@@ -142,7 +142,7 @@ class TestAsyncImpact:
         impact = await response.parse()
         assert_matches_type(ImpactRetrievePortfolioImpactResponse, impact, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_portfolio_impact(self, async_client: AsyncGarbage) -> None:
         async with async_client.sustainability.impact.with_streaming_response.retrieve_portfolio_impact() as response:
