@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestAds:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: Garbage) -> None:
         ad = client.ai.ads.retrieve(
@@ -25,7 +25,7 @@ class TestAds:
         )
         assert_matches_type(AdRetrieveResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: Garbage) -> None:
         response = client.ai.ads.with_raw_response.retrieve(
@@ -37,7 +37,7 @@ class TestAds:
         ad = response.parse()
         assert_matches_type(AdRetrieveResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: Garbage) -> None:
         with client.ai.ads.with_streaming_response.retrieve(
@@ -51,7 +51,7 @@ class TestAds:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `operation_id` but received ''"):
@@ -59,13 +59,13 @@ class TestAds:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: Garbage) -> None:
         ad = client.ai.ads.list()
         assert_matches_type(AdListResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: Garbage) -> None:
         response = client.ai.ads.with_raw_response.list()
@@ -75,7 +75,7 @@ class TestAds:
         ad = response.parse()
         assert_matches_type(AdListResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: Garbage) -> None:
         with client.ai.ads.with_streaming_response.list() as response:
@@ -87,7 +87,7 @@ class TestAds:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_optimize(self, client: Garbage) -> None:
         ad = client.ai.ads.optimize(
@@ -95,7 +95,7 @@ class TestAds:
         )
         assert_matches_type(AdOptimizeResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_optimize(self, client: Garbage) -> None:
         response = client.ai.ads.with_raw_response.optimize(
@@ -107,7 +107,7 @@ class TestAds:
         ad = response.parse()
         assert_matches_type(AdOptimizeResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_optimize(self, client: Garbage) -> None:
         with client.ai.ads.with_streaming_response.optimize(
@@ -127,7 +127,7 @@ class TestAsyncAds:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncGarbage) -> None:
         ad = await async_client.ai.ads.retrieve(
@@ -135,7 +135,7 @@ class TestAsyncAds:
         )
         assert_matches_type(AdRetrieveResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.ads.with_raw_response.retrieve(
@@ -147,7 +147,7 @@ class TestAsyncAds:
         ad = await response.parse()
         assert_matches_type(AdRetrieveResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.ads.with_streaming_response.retrieve(
@@ -161,7 +161,7 @@ class TestAsyncAds:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `operation_id` but received ''"):
@@ -169,13 +169,13 @@ class TestAsyncAds:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncGarbage) -> None:
         ad = await async_client.ai.ads.list()
         assert_matches_type(AdListResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.ads.with_raw_response.list()
@@ -185,7 +185,7 @@ class TestAsyncAds:
         ad = await response.parse()
         assert_matches_type(AdListResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.ads.with_streaming_response.list() as response:
@@ -197,7 +197,7 @@ class TestAsyncAds:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_optimize(self, async_client: AsyncGarbage) -> None:
         ad = await async_client.ai.ads.optimize(
@@ -205,7 +205,7 @@ class TestAsyncAds:
         )
         assert_matches_type(AdOptimizeResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_optimize(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.ads.with_raw_response.optimize(
@@ -217,7 +217,7 @@ class TestAsyncAds:
         ad = await response.parse()
         assert_matches_type(AdOptimizeResponse, ad, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_optimize(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.ads.with_streaming_response.optimize(

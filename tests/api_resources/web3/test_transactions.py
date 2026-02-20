@@ -19,7 +19,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestTransactions:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_bridge(self, client: Garbage) -> None:
         transaction = client.web3.transactions.bridge(
@@ -30,7 +30,7 @@ class TestTransactions:
         )
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_bridge(self, client: Garbage) -> None:
         response = client.web3.transactions.with_raw_response.bridge(
@@ -45,7 +45,7 @@ class TestTransactions:
         transaction = response.parse()
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_bridge(self, client: Garbage) -> None:
         with client.web3.transactions.with_streaming_response.bridge(
@@ -62,7 +62,7 @@ class TestTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_initiate(self, client: Garbage) -> None:
         transaction = client.web3.transactions.initiate(
@@ -72,7 +72,7 @@ class TestTransactions:
         )
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_initiate(self, client: Garbage) -> None:
         response = client.web3.transactions.with_raw_response.initiate(
@@ -86,7 +86,7 @@ class TestTransactions:
         transaction = response.parse()
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_initiate(self, client: Garbage) -> None:
         with client.web3.transactions.with_streaming_response.initiate(
@@ -102,7 +102,7 @@ class TestTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_send(self, client: Garbage) -> None:
         transaction = client.web3.transactions.send(
@@ -112,7 +112,7 @@ class TestTransactions:
         )
         assert_matches_type(TransactionSendResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_send(self, client: Garbage) -> None:
         response = client.web3.transactions.with_raw_response.send(
@@ -126,7 +126,7 @@ class TestTransactions:
         transaction = response.parse()
         assert_matches_type(TransactionSendResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_send(self, client: Garbage) -> None:
         with client.web3.transactions.with_streaming_response.send(
@@ -142,7 +142,7 @@ class TestTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_swap(self, client: Garbage) -> None:
         transaction = client.web3.transactions.swap(
@@ -152,7 +152,7 @@ class TestTransactions:
         )
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_swap(self, client: Garbage) -> None:
         response = client.web3.transactions.with_raw_response.swap(
@@ -166,7 +166,7 @@ class TestTransactions:
         transaction = response.parse()
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_swap(self, client: Garbage) -> None:
         with client.web3.transactions.with_streaming_response.swap(
@@ -188,7 +188,7 @@ class TestAsyncTransactions:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_bridge(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.web3.transactions.bridge(
@@ -199,7 +199,7 @@ class TestAsyncTransactions:
         )
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_bridge(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.transactions.with_raw_response.bridge(
@@ -214,7 +214,7 @@ class TestAsyncTransactions:
         transaction = await response.parse()
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_bridge(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.transactions.with_streaming_response.bridge(
@@ -231,7 +231,7 @@ class TestAsyncTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_initiate(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.web3.transactions.initiate(
@@ -241,7 +241,7 @@ class TestAsyncTransactions:
         )
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_initiate(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.transactions.with_raw_response.initiate(
@@ -255,7 +255,7 @@ class TestAsyncTransactions:
         transaction = await response.parse()
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_initiate(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.transactions.with_streaming_response.initiate(
@@ -271,7 +271,7 @@ class TestAsyncTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_send(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.web3.transactions.send(
@@ -281,7 +281,7 @@ class TestAsyncTransactions:
         )
         assert_matches_type(TransactionSendResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_send(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.transactions.with_raw_response.send(
@@ -295,7 +295,7 @@ class TestAsyncTransactions:
         transaction = await response.parse()
         assert_matches_type(TransactionSendResponse, transaction, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_send(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.transactions.with_streaming_response.send(
@@ -311,7 +311,7 @@ class TestAsyncTransactions:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_swap(self, async_client: AsyncGarbage) -> None:
         transaction = await async_client.web3.transactions.swap(
@@ -321,7 +321,7 @@ class TestAsyncTransactions:
         )
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_swap(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.transactions.with_raw_response.swap(
@@ -335,7 +335,7 @@ class TestAsyncTransactions:
         transaction = await response.parse()
         assert transaction is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_swap(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.transactions.with_streaming_response.swap(

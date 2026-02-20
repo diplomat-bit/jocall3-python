@@ -15,7 +15,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestSweeping:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_configure_rules(self, client: Garbage) -> None:
         sweeping = client.corporate.treasury.sweeping.configure_rules(
@@ -25,7 +25,7 @@ class TestSweeping:
         )
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_configure_rules_with_all_params(self, client: Garbage) -> None:
         sweeping = client.corporate.treasury.sweeping.configure_rules(
@@ -36,7 +36,7 @@ class TestSweeping:
         )
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_configure_rules(self, client: Garbage) -> None:
         response = client.corporate.treasury.sweeping.with_raw_response.configure_rules(
@@ -50,7 +50,7 @@ class TestSweeping:
         sweeping = response.parse()
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_configure_rules(self, client: Garbage) -> None:
         with client.corporate.treasury.sweeping.with_streaming_response.configure_rules(
@@ -66,7 +66,7 @@ class TestSweeping:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_execute_sweep(self, client: Garbage) -> None:
         sweeping = client.corporate.treasury.sweeping.execute_sweep(
@@ -74,7 +74,7 @@ class TestSweeping:
         )
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_execute_sweep(self, client: Garbage) -> None:
         response = client.corporate.treasury.sweeping.with_raw_response.execute_sweep(
@@ -86,7 +86,7 @@ class TestSweeping:
         sweeping = response.parse()
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_execute_sweep(self, client: Garbage) -> None:
         with client.corporate.treasury.sweeping.with_streaming_response.execute_sweep(
@@ -106,7 +106,7 @@ class TestAsyncSweeping:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_configure_rules(self, async_client: AsyncGarbage) -> None:
         sweeping = await async_client.corporate.treasury.sweeping.configure_rules(
@@ -116,7 +116,7 @@ class TestAsyncSweeping:
         )
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_configure_rules_with_all_params(self, async_client: AsyncGarbage) -> None:
         sweeping = await async_client.corporate.treasury.sweeping.configure_rules(
@@ -127,7 +127,7 @@ class TestAsyncSweeping:
         )
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_configure_rules(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.treasury.sweeping.with_raw_response.configure_rules(
@@ -141,7 +141,7 @@ class TestAsyncSweeping:
         sweeping = await response.parse()
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_configure_rules(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.treasury.sweeping.with_streaming_response.configure_rules(
@@ -157,7 +157,7 @@ class TestAsyncSweeping:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_execute_sweep(self, async_client: AsyncGarbage) -> None:
         sweeping = await async_client.corporate.treasury.sweeping.execute_sweep(
@@ -165,7 +165,7 @@ class TestAsyncSweeping:
         )
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_execute_sweep(self, async_client: AsyncGarbage) -> None:
         response = await async_client.corporate.treasury.sweeping.with_raw_response.execute_sweep(
@@ -177,7 +177,7 @@ class TestAsyncSweeping:
         sweeping = await response.parse()
         assert sweeping is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_execute_sweep(self, async_client: AsyncGarbage) -> None:
         async with async_client.corporate.treasury.sweeping.with_streaming_response.execute_sweep(

@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestApplications:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_submit(self, client: Garbage) -> None:
         application = client.lending.applications.submit(
@@ -31,7 +31,7 @@ class TestApplications:
         )
         assert_matches_type(ApplicationSubmitResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_submit_with_all_params(self, client: Garbage) -> None:
         application = client.lending.applications.submit(
@@ -49,7 +49,7 @@ class TestApplications:
         )
         assert_matches_type(ApplicationSubmitResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_submit(self, client: Garbage) -> None:
         response = client.lending.applications.with_raw_response.submit(
@@ -67,7 +67,7 @@ class TestApplications:
         application = response.parse()
         assert_matches_type(ApplicationSubmitResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_submit(self, client: Garbage) -> None:
         with client.lending.applications.with_streaming_response.submit(
@@ -87,7 +87,7 @@ class TestApplications:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_track_status(self, client: Garbage) -> None:
         application = client.lending.applications.track_status(
@@ -95,7 +95,7 @@ class TestApplications:
         )
         assert_matches_type(ApplicationTrackStatusResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_track_status(self, client: Garbage) -> None:
         response = client.lending.applications.with_raw_response.track_status(
@@ -107,7 +107,7 @@ class TestApplications:
         application = response.parse()
         assert_matches_type(ApplicationTrackStatusResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_track_status(self, client: Garbage) -> None:
         with client.lending.applications.with_streaming_response.track_status(
@@ -121,7 +121,7 @@ class TestApplications:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_track_status(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `app_id` but received ''"):
@@ -135,7 +135,7 @@ class TestAsyncApplications:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_submit(self, async_client: AsyncGarbage) -> None:
         application = await async_client.lending.applications.submit(
@@ -149,7 +149,7 @@ class TestAsyncApplications:
         )
         assert_matches_type(ApplicationSubmitResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_submit_with_all_params(self, async_client: AsyncGarbage) -> None:
         application = await async_client.lending.applications.submit(
@@ -167,7 +167,7 @@ class TestAsyncApplications:
         )
         assert_matches_type(ApplicationSubmitResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_submit(self, async_client: AsyncGarbage) -> None:
         response = await async_client.lending.applications.with_raw_response.submit(
@@ -185,7 +185,7 @@ class TestAsyncApplications:
         application = await response.parse()
         assert_matches_type(ApplicationSubmitResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_submit(self, async_client: AsyncGarbage) -> None:
         async with async_client.lending.applications.with_streaming_response.submit(
@@ -205,7 +205,7 @@ class TestAsyncApplications:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_track_status(self, async_client: AsyncGarbage) -> None:
         application = await async_client.lending.applications.track_status(
@@ -213,7 +213,7 @@ class TestAsyncApplications:
         )
         assert_matches_type(ApplicationTrackStatusResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_track_status(self, async_client: AsyncGarbage) -> None:
         response = await async_client.lending.applications.with_raw_response.track_status(
@@ -225,7 +225,7 @@ class TestAsyncApplications:
         application = await response.parse()
         assert_matches_type(ApplicationTrackStatusResponse, application, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_track_status(self, async_client: AsyncGarbage) -> None:
         async with async_client.lending.applications.with_streaming_response.track_status(
@@ -239,7 +239,7 @@ class TestAsyncApplications:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_track_status(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `app_id` but received ''"):

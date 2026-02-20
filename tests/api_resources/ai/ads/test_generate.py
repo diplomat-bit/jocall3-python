@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestGenerate:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_copy(self, client: Garbage) -> None:
         generate = client.ai.ads.generate.copy(
@@ -29,7 +29,7 @@ class TestGenerate:
         )
         assert_matches_type(GenerateCopyResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_copy(self, client: Garbage) -> None:
         response = client.ai.ads.generate.with_raw_response.copy(
@@ -42,7 +42,7 @@ class TestGenerate:
         generate = response.parse()
         assert_matches_type(GenerateCopyResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_copy(self, client: Garbage) -> None:
         with client.ai.ads.generate.with_streaming_response.copy(
@@ -57,7 +57,7 @@ class TestGenerate:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_video(self, client: Garbage) -> None:
         generate = client.ai.ads.generate.video(
@@ -67,7 +67,7 @@ class TestGenerate:
         )
         assert_matches_type(GenerateVideoResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_video(self, client: Garbage) -> None:
         response = client.ai.ads.generate.with_raw_response.video(
@@ -81,7 +81,7 @@ class TestGenerate:
         generate = response.parse()
         assert_matches_type(GenerateVideoResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_video(self, client: Garbage) -> None:
         with client.ai.ads.generate.with_streaming_response.video(
@@ -103,7 +103,7 @@ class TestAsyncGenerate:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_copy(self, async_client: AsyncGarbage) -> None:
         generate = await async_client.ai.ads.generate.copy(
@@ -112,7 +112,7 @@ class TestAsyncGenerate:
         )
         assert_matches_type(GenerateCopyResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_copy(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.ads.generate.with_raw_response.copy(
@@ -125,7 +125,7 @@ class TestAsyncGenerate:
         generate = await response.parse()
         assert_matches_type(GenerateCopyResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_copy(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.ads.generate.with_streaming_response.copy(
@@ -140,7 +140,7 @@ class TestAsyncGenerate:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_video(self, async_client: AsyncGarbage) -> None:
         generate = await async_client.ai.ads.generate.video(
@@ -150,7 +150,7 @@ class TestAsyncGenerate:
         )
         assert_matches_type(GenerateVideoResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_video(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.ads.generate.with_raw_response.video(
@@ -164,7 +164,7 @@ class TestAsyncGenerate:
         generate = await response.parse()
         assert_matches_type(GenerateVideoResponse, generate, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_video(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.ads.generate.with_streaming_response.video(

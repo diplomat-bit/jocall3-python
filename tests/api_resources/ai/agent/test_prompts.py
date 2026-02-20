@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestPrompts:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create(self, client: Garbage) -> None:
         prompt = client.ai.agent.prompts.create(
@@ -25,7 +25,7 @@ class TestPrompts:
         )
         assert prompt is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Garbage) -> None:
         response = client.ai.agent.prompts.with_raw_response.create(
@@ -37,7 +37,7 @@ class TestPrompts:
         prompt = response.parse()
         assert prompt is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Garbage) -> None:
         with client.ai.agent.prompts.with_streaming_response.create(
@@ -51,13 +51,13 @@ class TestPrompts:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: Garbage) -> None:
         prompt = client.ai.agent.prompts.list()
         assert_matches_type(PromptListResponse, prompt, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: Garbage) -> None:
         response = client.ai.agent.prompts.with_raw_response.list()
@@ -67,7 +67,7 @@ class TestPrompts:
         prompt = response.parse()
         assert_matches_type(PromptListResponse, prompt, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: Garbage) -> None:
         with client.ai.agent.prompts.with_streaming_response.list() as response:
@@ -85,7 +85,7 @@ class TestAsyncPrompts:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncGarbage) -> None:
         prompt = await async_client.ai.agent.prompts.create(
@@ -93,7 +93,7 @@ class TestAsyncPrompts:
         )
         assert prompt is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.agent.prompts.with_raw_response.create(
@@ -105,7 +105,7 @@ class TestAsyncPrompts:
         prompt = await response.parse()
         assert prompt is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.agent.prompts.with_streaming_response.create(
@@ -119,13 +119,13 @@ class TestAsyncPrompts:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncGarbage) -> None:
         prompt = await async_client.ai.agent.prompts.list()
         assert_matches_type(PromptListResponse, prompt, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncGarbage) -> None:
         response = await async_client.ai.agent.prompts.with_raw_response.list()
@@ -135,7 +135,7 @@ class TestAsyncPrompts:
         prompt = await response.parse()
         assert_matches_type(PromptListResponse, prompt, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncGarbage) -> None:
         async with async_client.ai.agent.prompts.with_streaming_response.list() as response:

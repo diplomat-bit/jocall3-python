@@ -17,13 +17,13 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestNFTs:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: Garbage) -> None:
         nft = client.web3.nfts.list()
         assert_matches_type(NFTListResponse, nft, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: Garbage) -> None:
         response = client.web3.nfts.with_raw_response.list()
@@ -33,7 +33,7 @@ class TestNFTs:
         nft = response.parse()
         assert_matches_type(NFTListResponse, nft, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: Garbage) -> None:
         with client.web3.nfts.with_streaming_response.list() as response:
@@ -45,7 +45,7 @@ class TestNFTs:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_mint(self, client: Garbage) -> None:
         nft = client.web3.nfts.mint(
@@ -53,7 +53,7 @@ class TestNFTs:
         )
         assert nft is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_mint(self, client: Garbage) -> None:
         response = client.web3.nfts.with_raw_response.mint(
@@ -65,7 +65,7 @@ class TestNFTs:
         nft = response.parse()
         assert nft is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_mint(self, client: Garbage) -> None:
         with client.web3.nfts.with_streaming_response.mint(
@@ -85,13 +85,13 @@ class TestAsyncNFTs:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncGarbage) -> None:
         nft = await async_client.web3.nfts.list()
         assert_matches_type(NFTListResponse, nft, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.nfts.with_raw_response.list()
@@ -101,7 +101,7 @@ class TestAsyncNFTs:
         nft = await response.parse()
         assert_matches_type(NFTListResponse, nft, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.nfts.with_streaming_response.list() as response:
@@ -113,7 +113,7 @@ class TestAsyncNFTs:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_mint(self, async_client: AsyncGarbage) -> None:
         nft = await async_client.web3.nfts.mint(
@@ -121,7 +121,7 @@ class TestAsyncNFTs:
         )
         assert nft is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_mint(self, async_client: AsyncGarbage) -> None:
         response = await async_client.web3.nfts.with_raw_response.mint(
@@ -133,7 +133,7 @@ class TestAsyncNFTs:
         nft = await response.parse()
         assert nft is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_mint(self, async_client: AsyncGarbage) -> None:
         async with async_client.web3.nfts.with_streaming_response.mint(

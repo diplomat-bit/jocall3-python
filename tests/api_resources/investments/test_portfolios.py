@@ -20,7 +20,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestPortfolios:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.create(
@@ -29,7 +29,7 @@ class TestPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_create_with_all_params(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.create(
@@ -39,7 +39,7 @@ class TestPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_create(self, client: Garbage) -> None:
         response = client.investments.portfolios.with_raw_response.create(
@@ -52,7 +52,7 @@ class TestPortfolios:
         portfolio = response.parse()
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_create(self, client: Garbage) -> None:
         with client.investments.portfolios.with_streaming_response.create(
@@ -67,7 +67,7 @@ class TestPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.retrieve(
@@ -75,7 +75,7 @@ class TestPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: Garbage) -> None:
         response = client.investments.portfolios.with_raw_response.retrieve(
@@ -87,7 +87,7 @@ class TestPortfolios:
         portfolio = response.parse()
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: Garbage) -> None:
         with client.investments.portfolios.with_streaming_response.retrieve(
@@ -101,7 +101,7 @@ class TestPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `portfolio_id` but received ''"):
@@ -109,7 +109,7 @@ class TestPortfolios:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.update(
@@ -117,7 +117,7 @@ class TestPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_update_with_all_params(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.update(
@@ -127,7 +127,7 @@ class TestPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: Garbage) -> None:
         response = client.investments.portfolios.with_raw_response.update(
@@ -139,7 +139,7 @@ class TestPortfolios:
         portfolio = response.parse()
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: Garbage) -> None:
         with client.investments.portfolios.with_streaming_response.update(
@@ -153,7 +153,7 @@ class TestPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_update(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `portfolio_id` but received ''"):
@@ -161,13 +161,13 @@ class TestPortfolios:
                 portfolio_id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.list()
         assert_matches_type(PortfolioListResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_list_with_all_params(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.list(
@@ -176,7 +176,7 @@ class TestPortfolios:
         )
         assert_matches_type(PortfolioListResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_list(self, client: Garbage) -> None:
         response = client.investments.portfolios.with_raw_response.list()
@@ -186,7 +186,7 @@ class TestPortfolios:
         portfolio = response.parse()
         assert_matches_type(PortfolioListResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_list(self, client: Garbage) -> None:
         with client.investments.portfolios.with_streaming_response.list() as response:
@@ -198,7 +198,7 @@ class TestPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_rebalance(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.rebalance(
@@ -206,7 +206,7 @@ class TestPortfolios:
         )
         assert_matches_type(PortfolioRebalanceResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_rebalance_with_all_params(self, client: Garbage) -> None:
         portfolio = client.investments.portfolios.rebalance(
@@ -215,7 +215,7 @@ class TestPortfolios:
         )
         assert_matches_type(PortfolioRebalanceResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_rebalance(self, client: Garbage) -> None:
         response = client.investments.portfolios.with_raw_response.rebalance(
@@ -227,7 +227,7 @@ class TestPortfolios:
         portfolio = response.parse()
         assert_matches_type(PortfolioRebalanceResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_rebalance(self, client: Garbage) -> None:
         with client.investments.portfolios.with_streaming_response.rebalance(
@@ -241,7 +241,7 @@ class TestPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_path_params_rebalance(self, client: Garbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `portfolio_id` but received ''"):
@@ -255,7 +255,7 @@ class TestAsyncPortfolios:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.create(
@@ -264,7 +264,7 @@ class TestAsyncPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_create_with_all_params(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.create(
@@ -274,7 +274,7 @@ class TestAsyncPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_create(self, async_client: AsyncGarbage) -> None:
         response = await async_client.investments.portfolios.with_raw_response.create(
@@ -287,7 +287,7 @@ class TestAsyncPortfolios:
         portfolio = await response.parse()
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_create(self, async_client: AsyncGarbage) -> None:
         async with async_client.investments.portfolios.with_streaming_response.create(
@@ -302,7 +302,7 @@ class TestAsyncPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.retrieve(
@@ -310,7 +310,7 @@ class TestAsyncPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncGarbage) -> None:
         response = await async_client.investments.portfolios.with_raw_response.retrieve(
@@ -322,7 +322,7 @@ class TestAsyncPortfolios:
         portfolio = await response.parse()
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncGarbage) -> None:
         async with async_client.investments.portfolios.with_streaming_response.retrieve(
@@ -336,7 +336,7 @@ class TestAsyncPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `portfolio_id` but received ''"):
@@ -344,7 +344,7 @@ class TestAsyncPortfolios:
                 "",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.update(
@@ -352,7 +352,7 @@ class TestAsyncPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_update_with_all_params(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.update(
@@ -362,7 +362,7 @@ class TestAsyncPortfolios:
         )
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncGarbage) -> None:
         response = await async_client.investments.portfolios.with_raw_response.update(
@@ -374,7 +374,7 @@ class TestAsyncPortfolios:
         portfolio = await response.parse()
         assert portfolio is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncGarbage) -> None:
         async with async_client.investments.portfolios.with_streaming_response.update(
@@ -388,7 +388,7 @@ class TestAsyncPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_update(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `portfolio_id` but received ''"):
@@ -396,13 +396,13 @@ class TestAsyncPortfolios:
                 portfolio_id="",
             )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.list()
         assert_matches_type(PortfolioListResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_list_with_all_params(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.list(
@@ -411,7 +411,7 @@ class TestAsyncPortfolios:
         )
         assert_matches_type(PortfolioListResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_list(self, async_client: AsyncGarbage) -> None:
         response = await async_client.investments.portfolios.with_raw_response.list()
@@ -421,7 +421,7 @@ class TestAsyncPortfolios:
         portfolio = await response.parse()
         assert_matches_type(PortfolioListResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_list(self, async_client: AsyncGarbage) -> None:
         async with async_client.investments.portfolios.with_streaming_response.list() as response:
@@ -433,7 +433,7 @@ class TestAsyncPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_rebalance(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.rebalance(
@@ -441,7 +441,7 @@ class TestAsyncPortfolios:
         )
         assert_matches_type(PortfolioRebalanceResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_rebalance_with_all_params(self, async_client: AsyncGarbage) -> None:
         portfolio = await async_client.investments.portfolios.rebalance(
@@ -450,7 +450,7 @@ class TestAsyncPortfolios:
         )
         assert_matches_type(PortfolioRebalanceResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_rebalance(self, async_client: AsyncGarbage) -> None:
         response = await async_client.investments.portfolios.with_raw_response.rebalance(
@@ -462,7 +462,7 @@ class TestAsyncPortfolios:
         portfolio = await response.parse()
         assert_matches_type(PortfolioRebalanceResponse, portfolio, path=["response"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_rebalance(self, async_client: AsyncGarbage) -> None:
         async with async_client.investments.portfolios.with_streaming_response.rebalance(
@@ -476,7 +476,7 @@ class TestAsyncPortfolios:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_path_params_rebalance(self, async_client: AsyncGarbage) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `portfolio_id` but received ''"):

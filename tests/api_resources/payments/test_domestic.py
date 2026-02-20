@@ -15,7 +15,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestDomestic:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_execute_ach(self, client: Garbage) -> None:
         domestic = client.payments.domestic.execute_ach(
@@ -25,7 +25,7 @@ class TestDomestic:
         )
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_execute_ach(self, client: Garbage) -> None:
         response = client.payments.domestic.with_raw_response.execute_ach(
@@ -39,7 +39,7 @@ class TestDomestic:
         domestic = response.parse()
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_execute_ach(self, client: Garbage) -> None:
         with client.payments.domestic.with_streaming_response.execute_ach(
@@ -55,7 +55,7 @@ class TestDomestic:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_execute_rtp(self, client: Garbage) -> None:
         domestic = client.payments.domestic.execute_rtp(
@@ -64,7 +64,7 @@ class TestDomestic:
         )
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_execute_rtp(self, client: Garbage) -> None:
         response = client.payments.domestic.with_raw_response.execute_rtp(
@@ -77,7 +77,7 @@ class TestDomestic:
         domestic = response.parse()
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_execute_rtp(self, client: Garbage) -> None:
         with client.payments.domestic.with_streaming_response.execute_rtp(
@@ -92,7 +92,7 @@ class TestDomestic:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_method_execute_wire(self, client: Garbage) -> None:
         domestic = client.payments.domestic.execute_wire(
@@ -102,7 +102,7 @@ class TestDomestic:
         )
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_raw_response_execute_wire(self, client: Garbage) -> None:
         response = client.payments.domestic.with_raw_response.execute_wire(
@@ -116,7 +116,7 @@ class TestDomestic:
         domestic = response.parse()
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     def test_streaming_response_execute_wire(self, client: Garbage) -> None:
         with client.payments.domestic.with_streaming_response.execute_wire(
@@ -138,7 +138,7 @@ class TestAsyncDomestic:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_execute_ach(self, async_client: AsyncGarbage) -> None:
         domestic = await async_client.payments.domestic.execute_ach(
@@ -148,7 +148,7 @@ class TestAsyncDomestic:
         )
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_execute_ach(self, async_client: AsyncGarbage) -> None:
         response = await async_client.payments.domestic.with_raw_response.execute_ach(
@@ -162,7 +162,7 @@ class TestAsyncDomestic:
         domestic = await response.parse()
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_execute_ach(self, async_client: AsyncGarbage) -> None:
         async with async_client.payments.domestic.with_streaming_response.execute_ach(
@@ -178,7 +178,7 @@ class TestAsyncDomestic:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_execute_rtp(self, async_client: AsyncGarbage) -> None:
         domestic = await async_client.payments.domestic.execute_rtp(
@@ -187,7 +187,7 @@ class TestAsyncDomestic:
         )
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_execute_rtp(self, async_client: AsyncGarbage) -> None:
         response = await async_client.payments.domestic.with_raw_response.execute_rtp(
@@ -200,7 +200,7 @@ class TestAsyncDomestic:
         domestic = await response.parse()
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_execute_rtp(self, async_client: AsyncGarbage) -> None:
         async with async_client.payments.domestic.with_streaming_response.execute_rtp(
@@ -215,7 +215,7 @@ class TestAsyncDomestic:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_method_execute_wire(self, async_client: AsyncGarbage) -> None:
         domestic = await async_client.payments.domestic.execute_wire(
@@ -225,7 +225,7 @@ class TestAsyncDomestic:
         )
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_raw_response_execute_wire(self, async_client: AsyncGarbage) -> None:
         response = await async_client.payments.domestic.with_raw_response.execute_wire(
@@ -239,7 +239,7 @@ class TestAsyncDomestic:
         domestic = await response.parse()
         assert domestic is None
 
-    @pytest.mark.skip(reason="Prism tests are disabled")
+    @pytest.mark.skip(reason="Mock server tests are disabled")
     @parametrize
     async def test_streaming_response_execute_wire(self, async_client: AsyncGarbage) -> None:
         async with async_client.payments.domestic.with_streaming_response.execute_wire(
