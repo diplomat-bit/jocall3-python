@@ -5,7 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ....._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
-from ....._utils import maybe_transform, async_maybe_transform
+from ....._utils import path_template, maybe_transform, async_maybe_transform
 from ....._compat import cached_property
 from ....._resource import SyncAPIResource, AsyncAPIResource
 from ....._response import (
@@ -129,7 +129,7 @@ class RulesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `rule_id` but received {rule_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._put(
-            f"/corporate/risk/fraud/rules/{rule_id}",
+            path_template("/corporate/risk/fraud/rules/{rule_id}", rule_id=rule_id),
             body=maybe_transform(
                 {
                     "action": action,
@@ -252,7 +252,7 @@ class AsyncRulesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `rule_id` but received {rule_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._put(
-            f"/corporate/risk/fraud/rules/{rule_id}",
+            path_template("/corporate/risk/fraud/rules/{rule_id}", rule_id=rule_id),
             body=await async_maybe_transform(
                 {
                     "action": action,

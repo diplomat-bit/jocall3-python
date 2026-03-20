@@ -5,6 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import Body, Query, Headers, NotGiven, not_given
+from ..._utils import path_template
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -65,7 +66,7 @@ class DecisionsResource(SyncAPIResource):
         if not decision_id:
             raise ValueError(f"Expected a non-empty value for `decision_id` but received {decision_id!r}")
         return self._get(
-            f"/lending/decisions/{decision_id}/rationale",
+            path_template("/lending/decisions/{decision_id}/rationale", decision_id=decision_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -119,7 +120,7 @@ class AsyncDecisionsResource(AsyncAPIResource):
         if not decision_id:
             raise ValueError(f"Expected a non-empty value for `decision_id` but received {decision_id!r}")
         return await self._get(
-            f"/lending/decisions/{decision_id}/rationale",
+            path_template("/lending/decisions/{decision_id}/rationale", decision_id=decision_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

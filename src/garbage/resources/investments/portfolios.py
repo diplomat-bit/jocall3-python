@@ -7,7 +7,7 @@ from typing_extensions import Literal
 import httpx
 
 from ..._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
+from ..._utils import path_template, maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -118,7 +118,7 @@ class PortfoliosResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `portfolio_id` but received {portfolio_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._get(
-            f"/investments/portfolios/{portfolio_id}",
+            path_template("/investments/portfolios/{portfolio_id}", portfolio_id=portfolio_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -154,7 +154,7 @@ class PortfoliosResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `portfolio_id` but received {portfolio_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._put(
-            f"/investments/portfolios/{portfolio_id}",
+            path_template("/investments/portfolios/{portfolio_id}", portfolio_id=portfolio_id),
             body=maybe_transform(
                 {
                     "risk_tolerance": risk_tolerance,
@@ -237,7 +237,7 @@ class PortfoliosResource(SyncAPIResource):
         if not portfolio_id:
             raise ValueError(f"Expected a non-empty value for `portfolio_id` but received {portfolio_id!r}")
         return self._post(
-            f"/investments/portfolios/{portfolio_id}/rebalance",
+            path_template("/investments/portfolios/{portfolio_id}/rebalance", portfolio_id=portfolio_id),
             body=maybe_transform(
                 {"execution_mode": execution_mode}, portfolio_rebalance_params.PortfolioRebalanceParams
             ),
@@ -337,7 +337,7 @@ class AsyncPortfoliosResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `portfolio_id` but received {portfolio_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._get(
-            f"/investments/portfolios/{portfolio_id}",
+            path_template("/investments/portfolios/{portfolio_id}", portfolio_id=portfolio_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -373,7 +373,7 @@ class AsyncPortfoliosResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `portfolio_id` but received {portfolio_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._put(
-            f"/investments/portfolios/{portfolio_id}",
+            path_template("/investments/portfolios/{portfolio_id}", portfolio_id=portfolio_id),
             body=await async_maybe_transform(
                 {
                     "risk_tolerance": risk_tolerance,
@@ -456,7 +456,7 @@ class AsyncPortfoliosResource(AsyncAPIResource):
         if not portfolio_id:
             raise ValueError(f"Expected a non-empty value for `portfolio_id` but received {portfolio_id!r}")
         return await self._post(
-            f"/investments/portfolios/{portfolio_id}/rebalance",
+            path_template("/investments/portfolios/{portfolio_id}/rebalance", portfolio_id=portfolio_id),
             body=await async_maybe_transform(
                 {"execution_mode": execution_mode}, portfolio_rebalance_params.PortfolioRebalanceParams
             ),
