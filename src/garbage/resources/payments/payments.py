@@ -13,6 +13,7 @@ from .fx import (
     AsyncFxResourceWithStreamingResponse,
 )
 from ..._types import Body, Query, Headers, NoneType, NotGiven, not_given
+from ..._utils import path_template
 from .domestic import (
     DomesticResource,
     AsyncDomesticResource,
@@ -102,7 +103,7 @@ class PaymentsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `payment_id` but received {payment_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._get(
-            f"/payments/{payment_id}",
+            path_template("/payments/{payment_id}", payment_id=payment_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -188,7 +189,7 @@ class AsyncPaymentsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `payment_id` but received {payment_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._get(
-            f"/payments/{payment_id}",
+            path_template("/payments/{payment_id}", payment_id=payment_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

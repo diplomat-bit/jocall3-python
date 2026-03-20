@@ -8,7 +8,7 @@ from typing_extensions import Literal
 import httpx
 
 from ..._types import Body, Omit, Query, Headers, NotGiven, omit, not_given
-from ..._utils import maybe_transform, async_maybe_transform
+from ..._utils import path_template, maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -120,7 +120,7 @@ class ApplicationsResource(SyncAPIResource):
         if not app_id:
             raise ValueError(f"Expected a non-empty value for `app_id` but received {app_id!r}")
         return self._get(
-            f"/lending/applications/{app_id}/status",
+            path_template("/lending/applications/{app_id}/status", app_id=app_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -223,7 +223,7 @@ class AsyncApplicationsResource(AsyncAPIResource):
         if not app_id:
             raise ValueError(f"Expected a non-empty value for `app_id` but received {app_id!r}")
         return await self._get(
-            f"/lending/applications/{app_id}/status",
+            path_template("/lending/applications/{app_id}/status", app_id=app_id),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

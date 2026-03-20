@@ -7,7 +7,7 @@ from typing_extensions import Literal
 import httpx
 
 from ...._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
-from ...._utils import maybe_transform, async_maybe_transform
+from ...._utils import path_template, maybe_transform, async_maybe_transform
 from ...._compat import cached_property
 from ...._resource import SyncAPIResource, AsyncAPIResource
 from ...._response import (
@@ -75,7 +75,7 @@ class ProposalsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `proposal_id` but received {proposal_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._post(
-            f"/corporate/governance/proposals/{proposal_id}/vote",
+            path_template("/corporate/governance/proposals/{proposal_id}/vote", proposal_id=proposal_id),
             body=maybe_transform(
                 {
                     "decision": decision,
@@ -210,7 +210,7 @@ class AsyncProposalsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `proposal_id` but received {proposal_id!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._post(
-            f"/corporate/governance/proposals/{proposal_id}/vote",
+            path_template("/corporate/governance/proposals/{proposal_id}/vote", proposal_id=proposal_id),
             body=await async_maybe_transform(
                 {
                     "decision": decision,
