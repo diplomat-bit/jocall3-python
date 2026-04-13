@@ -41,7 +41,7 @@ Homepage = "https://github.com/diplomat-bit/jocall3-python"
 Repository = "https://github.com/diplomat-bit/jocall3-python"
 
 [project.optional-dependencies]
-aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.9"]
+aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.12"]
 
 [tool.uv]
 managed = true
