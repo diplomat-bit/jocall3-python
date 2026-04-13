@@ -65,7 +65,7 @@ dev = [
     "time-machine",
     "dirty-equals>=0.6.0",
     "importlib-metadata>=6.7.0",
-    "rich>=13.7.1",
+    "rich>=15.0.0",
     "pytest-xdist>=3.6.1",
 ]
 pydantic-v1 = [
